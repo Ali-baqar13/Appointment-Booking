@@ -8,6 +8,7 @@ import auth from './Routes/auth.js'
 import UserRoute from './Routes/UserRoute.js'
 import ReviewRoute from './Routes/ReviewRoute.js'
 import DoctorRoute from './Routes/DoctorRoute.js'
+import BookingRoute from './Routes/BookingRoute.js'
 
 
 
@@ -34,6 +35,7 @@ app.use('/api/v1/auth',auth) //domain .../register or /login
 app.use('/api/v1/user',UserRoute)
 app.use('/api/v1/doctor',DoctorRoute)
 app.use('/api/v1/review',ReviewRoute)
+app.use('/api/v1/appointment',BookingRoute)
 
 //connect database\)/;
 

@@ -1,6 +1,6 @@
 import User from '../models/UserSchema.js'
 import Booking from '../models/BookingSchema.js'
-import DoctorSchema from '../models/DoctorSchema.js'
+import Doctor from '../models/DoctorSchema.js'
 
 export const updateUser=async (req,res)=>{
     const id = req.params.id
@@ -13,10 +13,7 @@ export const updateUser=async (req,res)=>{
     }
 }
 
-
-
 //...........................................................................................................
-
 
 export const deleteUser=async (req,res)=>{
     const id = req.params.id
@@ -42,8 +39,6 @@ export const findSingleUser=async (req,res)=>{
     }
 }
 
-
-
 //................................................................................................................
 
 export const getAllUsers=async (req,res)=>{ 
@@ -61,38 +56,30 @@ export const getAllUsers=async (req,res)=>{
 export const getUserProfile=async(req,res)=>{
     // console.log("..............................................")
     const userId = req.userId
-   
-    
     try{
         const user=await User.findById(userId)
         if(!user){
             res.status(404).json({sucess:false,message:"user not found"})
         }
         const {password,...rest}=user._doc
-        console.log("hello",{hello:{...rest}})
-        
-        return res.status(200).json({sucess:true,message:"sucessFull",message:"profile info is getting",data:{...rest}})
-        
+        return res.status(200).json({sucess:true,message:"sucessFull",message:"profile info is getting",data:{...rest}})  
     }catch(err){
         console.log(err)
         
         return res.status(500).json({sucess:false,message:"something wrong cannot get"})}
 }
-
 export const getAppointment=async (req,res)=>{
     try{
-
         const bookings =await Booking.find({user:req.userId})
-        const doctorsId =bookings.map(el=>el.doctor.id)
-        const doctor =await DoctorSchema.find({_id:{$in:doctorsId }}).select('-password')
-        return res.status(200).json({sucess:true,message:"Appoint found",data:doctor})
-
+        console.log(bookings)
+        const doctorsId =bookings.map(el=>el.doctor._id)
+        const doctor =await Doctor.find({_id:{$in:doctorsId }}).select('-password')
+        console.log(doctor,"doctor")
+        return res.status(200).json({sucess:true,message:"Appoint found", data:doctor})
     }catch(err){
         console.log(err)
         return res.status(500).json({success:false,message:"Appontment not found"})
-        
-    }
-
+        }
 }
 
 

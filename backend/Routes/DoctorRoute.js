@@ -2,9 +2,11 @@ import { updateDoctor, deleteDoctor, findSingleDoctor,getAllDoctors, getDoctorPr
 import express from 'express'
 import { authenticate , restrict} from "../auth/verifyToken.js";
 import ReviewRoute from './ReviewRoute.js'
+import BookingRoute from './BookingRoute.js'
 
 const router = express.Router()
 router.use('/:doctorId/reviews', ReviewRoute)
+router.use('/:doctorId/appointment', BookingRoute)
 router.get('/:id',authenticate,findSingleDoctor)
 router.get('/',authenticate,getAllDoctors)
 router.delete('/:id',authenticate,restrict(["Doctor"]),deleteDoctor)

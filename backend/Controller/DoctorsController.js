@@ -43,11 +43,10 @@ export const findSingleDoctor = async (req, res) => {
     const DoctorSingle = await Doctor.findById({ _id: id })
     
       .populate("reviews")
+      .populate("appointments")
       .select("-password")
       .exec();
-    
-    // console.log(reviews);
-    // console.log("single doc",DoctorSingle)
+  
     res.status(200).json({
       sucess: true,
       message: "sucessfully find Doctor",
@@ -58,8 +57,6 @@ export const findSingleDoctor = async (req, res) => {
     res.status(404).json({ success: false, message: "finding failed" });
   }
 };
-
-//
 
 //................................................................................................................
 

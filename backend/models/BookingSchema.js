@@ -15,7 +15,7 @@ const bookingSchema = new mongoose.Schema(
     ticketPrice: { type: String, required: true },
     appointmentDate: {
       type: Date,
-      required: true,
+      // required: true,
     },
     status: {
       type: String,
