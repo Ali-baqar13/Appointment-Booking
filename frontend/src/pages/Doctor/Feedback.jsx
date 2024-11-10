@@ -13,11 +13,7 @@ const Feedback = ({ totalRating, reviews }) => {
     setShowReview((perReview) => [...perReview, review])
   }
   const addName=(nam)=>{setName(nam)}
-  const addTotal=()=>{
-    setTotal(total+1)
-  }
- 
-
+  
   return (
     <div>
       <div className='mb-[50px] '>
@@ -41,14 +37,10 @@ const Feedback = ({ totalRating, reviews }) => {
 
           </div>
           <div className='flex gap-1'>{[...Array(review?.rating).keys().map((_, index) => <AiFillStar key={index} color='#0067FF' />)]}
-
           </div>
         </div>)}
-
-
       </div>
       {!showFeedbackForm && <div className='text-center'><button className='btn' onClick={() => setShowFeedbackForm(true)}>Give FeedBack</button>
-
       </div>}
       {showFeedbackForm && <FeedbackForm totalRating={setTotal} rate={total} addReview={addReview} addName={addName}/>}
 

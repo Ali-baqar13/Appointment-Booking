@@ -7,20 +7,16 @@ import Loading from '../Loader/Loading.jsx';
 import HashLoader from 'react-spinners/HashLoader.js';
 export const Login = () => {
   const [loading, setLoading] = useState(false)
-
   const navigate = useNavigate()
   const [FormData, setFormData] = useState({
     email: '',
-
     password: ''
-
   })
   const { dispatch } = useContext(authContext)
   const HandleInputChange = e => {
     setFormData({ ...FormData, [e.target.name]: e.target.value })
   }
   const submitHandler = async (event) => {
-    console.log(FormData);
     event.preventDefault();
     setLoading(true);
     try {
@@ -44,12 +40,10 @@ export const Login = () => {
           role: result.role
         }
       })
-      console.log("result", result)
       setLoading(false);
       toast.success(result.message);
       navigate("/home");
     } catch (err) {
-      console.log(err);
       toast.error(err.message);
       setLoading(false);
     }

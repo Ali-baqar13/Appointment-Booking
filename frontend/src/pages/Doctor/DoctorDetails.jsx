@@ -8,18 +8,14 @@ import customHook from "../../hooks/customHook";
 import Error from "../../components/Error/Error.jsx"
 import Loader from "../../Loader/Loading.jsx"
 import { useParams } from "react-router-dom";
-
+import Appointment from "../../Dashboard/Profile/Appointment.jsx";
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
   const {doctorId}=useParams()
- 
   const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${doctorId}`)
- 
   const {name,photo,averageRating,totalRating,specialization, reviews}=doctor
-  console.log("doctor here it is", doctor)
-  
-
+  const [appointments, setAppointments]=useState(false)
   return (
     <>
       <section>
@@ -48,12 +44,6 @@ const DoctorDetails = () => {
                   </div>
                 </div>
               </div>
-
-              {/* <div className='mt-[50px] border-b border-solid border-[#0066ff34]'>
-            <button onClick={()=>setTab('about')} className={`${tab==='about' && "border-b-solid border-primaryColor"} py-2 px-5 text-[16px] leading-7 text-headingColor font-semibold`}>About</button>
-            <button onClick={()=>setTab('feedback')} className={` ${tab==='feedback' && "border-b-solid border-primaryColor"}  py-2 px-5 text-[16px] leading-7 text-headingColor font-semibold`}>FeedBack</button>
-         
-          </div> */}
               <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
                 <button
                   onClick={() => setTab("about")}
@@ -100,12 +90,14 @@ const DoctorDetails = () => {
                   <div>Wednesday</div>
                   <div>4 PM - 9:30 AM</div>
                 </div>
-                <button className="btn w-full mt-19 rounded-md">Book Appointment</button>
-              
+                {!appointments && <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(true)}>Book Appointment</button>}
+                
+                {appointments &&  <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(false)}>Book Appointment</button> &&  <Appointment/>}
+            
               </div>
               
             </div>
-            
+           
           </div>}
         </div>
       </section>

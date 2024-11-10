@@ -16,10 +16,8 @@ const Signup = () => {
   const [FormData, setFormData] = useState({
     name: "",
     email: "",
-
     photo: selectedFile,
     role: "patient",
-
     gender: "male",
     password: "",
   });
@@ -27,10 +25,8 @@ const Signup = () => {
     setFormData({ ...FormData, [e.target.name]: e.target.value });
   };
   const handleFileInputChange = async (event) => {
-  
     const file = event.target.files[0];
     const data = await uploadCloudinaryImage(file);
-    // ;
     setpreview(data.url)
     setSelectedFile(data.url)
     setFormData({ ...FormData, photo:data.url})

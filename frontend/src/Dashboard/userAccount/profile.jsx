@@ -82,7 +82,6 @@ const Profile = ({ user }) => {
             className="w-full pr-4  py-3 border-b border-solid border-[#1f478261] focus:outline-none focus:border-b border-primaryColor text-[22px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md "
           />
         </div>
-
         <div className="mb-5 ">
           <input
             type="email"
@@ -93,7 +92,6 @@ const Profile = ({ user }) => {
             className="w-full pr-4  py-3 border-b border-solid border-[#1f478261] focus:outline-none focus:border-b-primaryColortext text-[22px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md "
           ></input>
         </div>
-
         <div className="mb-5 ">
           <input
             type="password"

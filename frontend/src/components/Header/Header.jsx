@@ -28,12 +28,7 @@ const Header = () => {
   const headRef = useRef(null);
   const menuRef = useRef(null);
   const { dispatch } = useContext(authContext);
-
   const { user, role, token } = useContext(authContext);
-  console.log("user", user);
-  console.log("role", role);
-  console.log("token", token);
-
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
   const handelStickyHeader = () => {

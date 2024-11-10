@@ -8,7 +8,7 @@ import Tab from "../Tabs/Tab";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "../../pages/Doctor/DoctorAbout";
 import Profile from "../Profile/Profile";
-import Appointment from "../Appointment/appointment";
+import Appointment from "../Appointment/Appointment";
 const Dasboard = () => {
   const { data:doctor, loading, error } = customHook(`${BASE_URL}/doctor/profile/me`);
   const [tab, setTab] = useState("overview");
@@ -52,8 +52,7 @@ const Dasboard = () => {
                      {doctor?.bio}
                     </p>
                  
-                  </div>
-                  
+                  </div> 
                 </div>
                 <DoctorAbout key={doctor._id} doctor={doctor}/>
                 </div>
