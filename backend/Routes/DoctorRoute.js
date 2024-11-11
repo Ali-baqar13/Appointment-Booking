@@ -11,7 +11,7 @@ router.get('/:id',authenticate,findSingleDoctor)
 router.get('/',authenticate,getAllDoctors)
 router.delete('/:id',authenticate,restrict(["Doctor"]),deleteDoctor)
 router.put('/:id',authenticate,restrict(["Doctor"]),updateDoctor)
-router.get('/profile/me',authenticate,restrict(["Doctor"]),getDoctorProfile)
+router.get('/profile/me',authenticate,getDoctorProfile)
 
 
 export default router

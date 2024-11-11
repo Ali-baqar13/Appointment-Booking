@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { doctors } from '../../assets/data/doctors'
 import DoctorCard from "../../components/Doctors/DoctorCard.jsx";
 import { BASE_URL } from "../../../config";
 import customHook from "../../hooks/customHook";
@@ -11,11 +10,11 @@ const Doctor = () => {
 
   const handleSearch = (e) => {
     setQuery(e.query.trim())
-    console.log("submitSearch")
+    // console.log("submitSearch")
 
   }
   const { data: doctor, loading, error } = customHook(`${BASE_URL}/doctor?query=${query}`);
-  console.log(doctor)
+  
   return (
     <>
 

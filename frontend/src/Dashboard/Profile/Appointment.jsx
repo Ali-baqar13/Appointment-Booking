@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import HashLoader from 'react-spinners/HashLoader'
 import { toast } from 'react-toastify'
@@ -50,6 +50,7 @@ const Appointment = ({ setCheck, setApp }) => {
       toast.error(err.message);
       setLoading(false);
     };
+    useEffect(()=>{setCheck(false)})
   }
   return (
     <section className="navi" ref={menuRef}>
