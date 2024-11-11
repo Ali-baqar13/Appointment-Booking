@@ -12,6 +12,7 @@ import Appointment from "../../Dashboard/Profile/Appointment.jsx";
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
+  const [check, setCheck] = useState(true)
   const {doctorId}=useParams()
   const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${doctorId}`)
   const {name,photo,averageRating,totalRating,specialization, reviews}=doctor
@@ -90,9 +91,9 @@ const DoctorDetails = () => {
                   <div>Wednesday</div>
                   <div>4 PM - 9:30 AM</div>
                 </div>
-                {!appointments && <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(true)}>Book Appointment</button>}
-                
-                {appointments  &&  <Appointment app={appointments} setApp={setAppointments}/>}
+                {!appointments && check && <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(true)}>Book Appointment</button>}
+                {!check && <div className="w-full mt-20 rounded-md shadow-md bg-slate-400 p-3 text-center">Appointment Booked!</div>}
+                {appointments  &&  <Appointment setCheck={setCheck} setApp={setAppointments}/>}
             
               </div>
               
