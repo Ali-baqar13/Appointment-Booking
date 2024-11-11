@@ -92,7 +92,7 @@ const DoctorDetails = () => {
                 </div>
                 {!appointments && <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(true)}>Book Appointment</button>}
                 
-                {appointments &&  <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(false)}>Book Appointment</button> &&  <Appointment/>}
+                {appointments  &&  <Appointment app={appointments} setApp={setAppointments}/>}
             
               </div>
               

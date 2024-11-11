@@ -5,7 +5,7 @@
     position: sticky;
     top: 0;
     left:0;
-    z-index: 99999;
+    z-index: 100;
     background: white;
     box-shadow: 3px 3px -8px 3px #ddd;
 }
@@ -22,15 +22,10 @@
     display:block
 }
 .remi{
-    width: 15rem;
-    height: 100%;
+    
     position :fixed;
-    top:5%;
-    bottom:5%;
-    right:5%;
-    left:5%;
     background:#fff;
-    z-index: 200;
+    z-index: 2000;
     border-radius: 10px;
     flex-direction: column;
     justify-content: center;
