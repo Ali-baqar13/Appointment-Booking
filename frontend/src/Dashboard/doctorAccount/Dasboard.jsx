@@ -12,6 +12,7 @@ import Appointment from "../Appointment/Appointment";
 const Dasboard = () => {
   const { data:doctor, loading, error } = customHook(`${BASE_URL}/doctor/profile/me`);
   const [tab, setTab] = useState("overview");
+  
   return (
     <section>
       {loading && !error && <Loading />}
@@ -58,7 +59,7 @@ const Dasboard = () => {
                 </div>
               )}
               {tab === "app" && <Profile doctorData={doctor}/>}
-              {tab === "setting" && <Appointment appointment={doctor.appointment}/>}
+              {tab === "setting" && <Appointment  appointment={doctor.appointments}/>}
             </div>
           </div>
         </div>

@@ -41,6 +41,7 @@ export const createAppointment = async (req, res) => {
                 $push: { appointments: savedBooking._id }, // Assuming 'bookings' is the correct field name
             }
         );
+        
 
         // Respond with relevant booking details
         const responseData = {

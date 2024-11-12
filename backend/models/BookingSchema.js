@@ -30,4 +30,12 @@ const bookingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+bookingSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: "user",
+    select: "name photo gender", 
+  });
+  next();
+});
+
 export default mongoose.model("Booking", bookingSchema);

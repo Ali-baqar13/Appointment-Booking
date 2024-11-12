@@ -88,22 +88,17 @@ export const getAllDoctors = async (req, res) => {
 };
 
 export const getDoctorProfile = async (req, res) => {
-  const doctorId =  req.params.id;
+  const doctorId =  req.userId;
   
   try {
     const doctor = await Doctor.findById(doctorId);
     if (!doctor) {
       res.status(404).json({ success: false, message: "doctor not found" });
     }
-  
-
     const {...rest } = doctor._doc;
-  
     const appointments = await Booking.find({ doctor: doctorId });
-
     return res.status(200).json({
       sucess: true,
-      message: "sucessFull",
       message: "profile info is getting",
       data: { ...rest, appointments },
     });

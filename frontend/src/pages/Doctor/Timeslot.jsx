@@ -6,11 +6,7 @@ import { BASE_URL } from '../../../config';
 const Timeslot = () => {
     const [appointments, setAppointments]=useState(false);
     const [check, setCheck] = useState(true)
-    let [status, setStatus]=useState({})
-    const {data:dom, loading, error}=customHook(`${BASE_URL}/user/appointment/myappointment`)
-   
-  
-   
+    
   return (
     <>
     <div className="container w-0.6">
@@ -35,7 +31,7 @@ const Timeslot = () => {
                 </div>
                 {!appointments && check && <button className="btn w-full mt-19 rounded-md" onClick={()=>setAppointments(true)}>Book Appointment</button>}
                 <div>
-                {!check && 
+                {!check  &&
                 <div>
                   <div className="w-full mt-20 rounded-md shadow-md bg-slate-400 p-3 text-center">Appointment Booked !</div> 
                   <button className="btn w-full bg-red-700 rounded-md">Cancel Appointment ?</button>
